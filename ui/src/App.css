@@ -27,8 +27,16 @@ h1 {
   line-height: 1.5;
 }
 
+.generator {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
 input {
-  width: 80%;
+  width: 200px;
   padding: 0.6rem;
   margin-right: 0.5rem;
   background: #222;
