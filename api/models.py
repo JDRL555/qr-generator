@@ -5,6 +5,7 @@ class GenerateRequest(BaseModel):
     target: HttpUrl   # la URL final a la que queremos redirigir
 
 class QRDocument(BaseModel):
+    name: str
     code_id: str
     target: HttpUrl       # URL original
     scan_path: str        # ruta interna, ej: "/r/...."

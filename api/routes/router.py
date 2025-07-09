@@ -45,6 +45,7 @@ async def generate_qr(req: GenerateRequest):
         await collection.update_one({"target": target}, {"$inc": {"generated_count": 1}})
     else:
         doc = {
+            "name":           str(req.name),
             "code_id":        str(uuid.uuid4()),
             "target":         target,
             "generated_count": 1,
@@ -54,6 +55,7 @@ async def generate_qr(req: GenerateRequest):
         await collection.insert_one(doc)
 
     return {
+        "name":           doc["name"],
         "code_id":        doc["code_id"],
         "target":         doc["target"],
         "scan_path":      f"/r/{doc['code_id']}",

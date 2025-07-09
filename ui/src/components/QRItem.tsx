@@ -23,7 +23,7 @@ export default function QRItem({
         level="M"
       />
       <div className="info">
-        <p>Generado: {qr.generated_count}x</p>
+        <p>Nombre: {qr.name}</p>
         <p>Escaneado: {qr.scan_count}x</p>
       </div>
       <div className="actions">

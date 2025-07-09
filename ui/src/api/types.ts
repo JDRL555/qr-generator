@@ -1,5 +1,6 @@
 export interface QRDocument {
   _id: string;
+  name: string;
   code_id: string;
   target: string;
   scan_path: string;
@@ -10,5 +11,6 @@ export interface QRDocument {
 }
 
 export interface GenerateRequest {
+  name: string;
   target: string;
 }

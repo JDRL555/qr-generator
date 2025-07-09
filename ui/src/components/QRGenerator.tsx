@@ -5,10 +5,11 @@ export default function QRGenerator({
   onCreated,
   disabled,
 }: {
-  onCreated: (target: string) => void;
+  onCreated: (name: string, target: string) => void;
   disabled?: boolean;
 }) {
   const [url, setUrl] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState("");
 
   const handle = () => {
@@ -19,7 +20,7 @@ export default function QRGenerator({
       setError("Ingresa una URL válida");
       return;
     }
-    onCreated(url);
+    onCreated(name, url);
     setUrl("");
   };
 
@@ -27,6 +28,15 @@ export default function QRGenerator({
     <div className="generator">
       <input
         disabled={disabled}
+        required
+        type="text"
+        placeholder="Titulo del QR"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        disabled={disabled}
+        required
         type="text"
         placeholder="https://ejemplo.com"
         value={url}
