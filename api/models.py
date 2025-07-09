@@ -2,6 +2,7 @@ from pydantic import BaseModel, HttpUrl
 from datetime import datetime
 
 class GenerateRequest(BaseModel):
+    name: str
     target: HttpUrl   # la URL final a la que queremos redirigir
 
 class QRDocument(BaseModel):
