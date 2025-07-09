@@ -47,16 +47,17 @@ export default function QRModal({
 
   const download = async () => {
     try {
-      const canvas = await svgToCanvas();
-      canvas.toBlob((b) => {
-        if (!b) return;
-        const url = URL.createObjectURL(b);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `qr-${qr.code_id}.png`;
-        a.click();
-        URL.revokeObjectURL(url);
-      }, "image/png");
+      if (!wrapperRef.current) throw new Error("No hay SVG");
+      const svg = wrapperRef.current.querySelector("svg");
+      if (!svg) throw new Error("SVG no hallado");
+      const xml = new XMLSerializer().serializeToString(svg);
+      const blob = new Blob([xml], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `qr-${qr.code_id}.svg`;
+      a.click();
+      URL.revokeObjectURL(url);
     } catch (e) {
       console.error(e);
     }

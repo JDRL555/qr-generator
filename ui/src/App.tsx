@@ -35,10 +35,10 @@ export default function App() {
     loadList();
   }, []);
 
-  const handleCreated = async (target: string) => {
+  const handleCreated = async (name: string, target: string) => {
     setLoadingOp(true);
     try {
-      const qr = await generateQR({ target });
+      const qr = await generateQR({ name, target });
       setQrList((prev) => [qr, ...prev]);
     } catch (e: any) {
       alert(e.message);
