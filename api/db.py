@@ -1,10 +1,5 @@
-from api.constants import MONGO_URI
-from dotenv import load_dotenv
+from constants import MONGO_URI
+from motor.motor_asyncio import AsyncIOMotorClient
 
-import os
-import motor.motor_asyncio
-
-load_dotenv()
-
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
-db = client.qr_app.qrcodes
+client = AsyncIOMotorClient(MONGO_URI)
+collection = client.qr_app.qrcodes
