@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api/client.ts","./src/api/types.ts","./src/components/confirmmodal.tsx","./src/components/loadingoverlay.tsx","./src/components/qrgenerator.tsx","./src/components/qritem.tsx","./src/components/qrlist.tsx","./src/components/qrmodal.tsx"],"version":"5.8.3"}
