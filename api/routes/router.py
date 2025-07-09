@@ -25,6 +25,7 @@ async def list_qrs():
     cursor = collection.find().sort("created_at", -1)
     async for doc in cursor:
         qrs.append({
+            "name":          doc["name"],
             "code_id":       doc["code_id"],
             "target":        doc["target"],
             "scan_path":     f"/r/{doc['code_id']}",
